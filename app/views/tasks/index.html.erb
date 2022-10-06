@@ -1,0 +1,6 @@
+<h2>TO DO 転職活動</h2>
+<%= link_to "CREATE NEW COMPANY",new_task_path,method: :GET %>
+<h3>COMPANY LIST</h3>
+<% @tasks.each do |task| %>
+     <p>・<%= task.title %><%=link_to "DELETE", "/tasks/#{task.id}", method: :delete %></p>
+<% end %>
