@@ -12,6 +12,17 @@
   <body>
   <nav class="navbar" style="background-color: #e3f2fd;">
    <a class="navbar-brand" href="/">TO DO 転職</a>
+  <% if user_signed_in? %>
+    <div class="nav__right">
+    <%="#{current_user.nickname}さん"%>
+     <%= link_to'ログアウト',destroy_user_session_path,method: :delete%>
+    </div> 
+  <% else %>
+    <div class="nav__right">
+     <%= link_to'ログイン',new_user_session_path%>
+     <%= link_to'新規登録',new_user_registration_path%>
+    </div> 
+  <% end %>
   </nav>
   <div class="container">
     <%= yield %>
