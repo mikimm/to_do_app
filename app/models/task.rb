@@ -1,5 +1,4 @@
 class Task < ApplicationRecord
-  validates :title, presence: true
   belongs_to :user
-  has_one :memo
+  has_one :memo,foreign_key: :task_id, dependent: :destroy
 end

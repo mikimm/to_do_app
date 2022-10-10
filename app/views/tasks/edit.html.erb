@@ -1,11 +1,9 @@
+<h2 class="title">CREATE NEW COMPANY</h2>
 <div class="contents row">
-<tr>
-  <div class="container">
-  <%= form_with(model: [@task, @memo], local: true) do |f| %>
-  <th>会社名</th>
-  <td><%= @task.title%></td>
-  <p></p>
-</tr>
+<div class="container">
+<%= form_with model: @task_memo, url: tasks_path, local: true do |f| %>
+<th>会社名</th>
+  <p><%= f.text_field :title,class:"input-default", id:"title", :size=>"20"%></p>
 <tr>
 <th>会社URL欄</th>
 <td>
@@ -28,7 +26,7 @@
 <tr>
 <th>代表者名</th>
 <td>
-  <p><%= f.text_field :CEO, class:"input-default", id:"CEO", placeholder:"例）牧野幹弘"%></p>
+  <p><%= f.text_field :ceo, class:"input-default", id:"ceo", placeholder:"例）牧野幹弘"%></p>
 </td>
 </tr>
 <tr>
@@ -38,14 +36,13 @@
 </td>
 </tr>
 <tr>
-<th>登録</th>
 <td>
-  <p><%= f.submit "CREATE" %></p>
+  <p><%= f.submit 'CREATE',class: "btn btn-outline-primary"%></p>
 </td>
 </tr>
- <% end %>
 </div>
 </table>
 
-  </div>
 </div>
+
+<% end %>

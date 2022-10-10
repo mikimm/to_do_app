@@ -1,5 +1,48 @@
 <h2 class="title">CREATE NEW COMPANY</h2>
-<%= form_with model: @task, local: true do |f| %>
-  <p><%= f.text_field :title,class: "form-control" %></p>
+<div class="contents row">
+<div class="container">
+<%= form_with model: @task_memo, url: tasks_path, local: true do |f| %>
+<th>会社名</th>
+  <p><%= f.text_field :title,class:"input-default", id:"title", :size=>"20"%></p>
+<tr>
+<th>会社URL欄</th>
+<td>
+  <p><%= f.text_field :url, class:"input-default", id:"url", :size=>"60"%></p>
+</td>
+</tr>
+<tr>
+<div class="form-group">
+<th>所在地</th>
+<td>
+  <p><%= f.text_field :region, class:"input-default", id:"region", placeholder:"埼玉県越谷市大林市5-10-11",:size=>"60"%></p>
+</td>
+</tr>
+<tr>
+<th>電話</th>
+<td>
+  <p><%= f.text_field :phone_number, class:"input-default", id:"phone_number", placeholder:"09012190274", maxlength:"11" %></p>
+</td>
+</tr>
+<tr>
+<th>代表者名</th>
+<td>
+  <p><%= f.text_field :ceo, class:"input-default", id:"ceo", placeholder:"例）牧野幹弘"%></p>
+</td>
+</tr>
+<tr>
+<th>記述</th>
+<td>
+  <p><%= f.text_area :content, class:"memo-text", id:"content", placeholder:"従業員は250名ほどです。勤務時間は09:00~18:00になります。仕事内容はシステムの保守・運用・開発まで多岐にわたります。" ,:size=>"60x10",maxlength:"1000" %></p>
+</td>
+</tr>
+<tr>
+<td>
   <p><%= f.submit 'CREATE',class: "btn btn-outline-primary"%></p>
+</td>
+</tr>
+</div>
+</table>
+
+</div>
+
 <% end %>
