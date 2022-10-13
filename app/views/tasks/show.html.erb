@@ -1,13 +1,12 @@
 <h2 class="title">COMPANY PROFILE</h2>
 <div class="contents row">
 <div class="container">
-<%= form_with model: @task_memo, url: tasks_path, local: true do |f| %>
 <th>会社名</th>
   <p><%= @task.title%></p>
 <tr>
 <th>会社URL欄</th>
 <td>
-  <p><%= raw Rinku.auto_link(@memo.url)%></p>
+  <p><%= raw Rinku.auto_link((@memo.url), :urls, 'target="_blank"')%></p>
 </td>
 </tr>
 <tr>
@@ -44,4 +43,3 @@
 
 </div>
 
-<% end %>

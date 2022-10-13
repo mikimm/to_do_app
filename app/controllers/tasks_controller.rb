@@ -7,6 +7,17 @@ class TasksController < ApplicationController
     @task_memo = TaskMemo.new
   end
 
+
+  def create
+    task_memo =  TaskMemo.new(task_params)
+    if task_memo.valid?
+      task_memo.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   def show
     @memo= Memo.find(params[:id])
     @task= Task.find(params[:id])
@@ -15,17 +26,23 @@ class TasksController < ApplicationController
   def edit
     @memo= Memo.find(params[:id])
     @task= Task.find(params[:id])
+    task_attributes = @task.attributes
+    @task_memo = TaskMemo.new(task_attributes)
+    binding.pry
   end
 
-  def create
-    @task_memo =  TaskMemo.new(task_params)
-    if @task_memo.valid?
-      @task_memo.save
+  def update
+    @task= Task.find(params[:id])
+    @memo= Memo.find(params[:id])
+    @task_memo = TaskMemo.new(task_params)
+    if  @task_memo.valid?
+      @task_memo.update(task_params,@task)
       redirect_to root_path
     else
-      render :new
+      render :edit
     end
   end
+
 
   def destroy
     @task= Task.find(params[:id])
@@ -38,4 +55,7 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task_memo).permit(:title,:url,:region,:phone_number,:ceo,:content).merge(user_id: current_user.id)
   end
-  end
+  
+
+end
+
