@@ -2,36 +2,36 @@
 <div class="contents row">
 <div class="container">
 <th>会社名</th>
-  <p><%= @task.title%></p>
+  <p><%= @task_memo.title%></p>
 <tr>
 <th>会社URL欄</th>
 <td>
-  <p><%= raw Rinku.auto_link((@memo.url), :urls, 'target="_blank"')%></p>
+  <p><%= raw Rinku.auto_link((@task_memo.url), :urls, 'target="_blank"')%></p>
 </td>
 </tr>
 <tr>
 <div class="form-group">
 <th>所在地</th>
 <td>
-  <p><%=@memo.region %></p>
+  <p><%=@task_memo.region %></p>
 </td>
 </tr>
 <tr>
 <th>電話</th>
 <td>
-  <p><%= @memo.phone_number%></p>
+  <p><%=@task_memo.phone_number%></p>
 </td>
 </tr>
 <tr>
 <th>代表者名</th>
 <td>
-  <p><%= @memo.ceo%></p>
+  <p><%= @task_memo.ceo%></p>
 </td>
 </tr>
 <tr>
 <th>記述</th>
 <td>
-  <p><%= @memo.content%></p>
+  <p><%=@task_memo.content%></p>
 </td>
 </tr>
 <tr>
