@@ -1,0 +1,45 @@
+<h2 class="title">TO EDIT THE COMPANY</h2>
+<%= form_with model: @task_memo, local: true do |f| %>
+<div class="contents row">
+<div class="container">
+<th>会社名</th>
+  <p><%= f.text_field :title,class:"input-default", id:"title", :size=>"20"%></p>
+<tr>
+<th>会社URL欄</th>
+<td>
+  <p><%= f.text_field :url, class:"input-default", id:"url", :size=>"60"%></p>
+</td>
+</tr>
+<tr>
+<div class="form-group">
+<th>所在地</th>
+<td>
+  <p><%= f.text_field :region, class:"input-default", id:"region",:size=>"60"%></p>
+</td>
+</tr>
+<tr>
+<th>電話</th>
+<td>
+  <p><%= f.text_field :phone_number, class:"input-default", id:"phone_number",  maxlength:"11" %></p>
+</td>
+</tr>
+<tr>
+<th>代表者名</th>
+<td>
+  <p><%= f.text_field :ceo, class:"input-default", id:"ceo"%></p>
+</td>
+</tr>
+<tr>
+<th>記述</th>
+<td>
+  <p><%= f.text_area :content, class:"memo-text", id:"content",:size=>"60x10",maxlength:"1000" %></p>
+</td>
+</tr>
+<tr>
+<td>
+  <p><%= f.submit 'CREATE',class: "btn btn-outline-primary"%></p>
+</td>
+</tr>
+</div>
+</div>
+<% end %>
