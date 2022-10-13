@@ -40,12 +40,21 @@ https://gyazo.com/f105428cf22f6e91c497370622aaa193
 またカレンダー機能なども追加したいです。
 
 データベース設計
-
+test.dioに記載しています。
 
 
 
 画面遷移図
+製作中です。
 
+開発環境
+ruby, ruby on rails, html&css等
+
+ローカルでの動作方法
+%git clone https://to-do-app-38386.herokuapp.com/
+%cd to_do_app
+% bundle install
+% yarn install
 
 
 
