@@ -8,13 +8,30 @@ class TasksController < ApplicationController
   end
 
   def show
-    @memo= Memo.find(params[:id])
-    @task= Task.find(params[:id])
+    load_task
+
+    @task_memo = TaskMemo.new(task: @task_memo)
   end
 
   def edit
-    @memo= Memo.find(params[:id])
-    @task= Task.find(params[:id])
+    load_task
+
+    @task_memo = TaskMemo.new(task: @task_memo)
+
+    # @memo= Memo.find(params[:id])
+    # @task= Task.find(params[:id])
+  end
+
+  def update
+    load_task
+
+    @form = TaskMemo.new(task_params, task: @task_memo)
+
+    if @form.save
+      redirect_to @task_memo, notice: 'The post has been updated.'
+    else
+      render :edit
+    end
   end
 
   def create
@@ -36,6 +53,10 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task_memo).permit(:title,:url,:region,:phone_number,:ceo,:content).merge(user_id: current_user.id)
+    params.require(:task).permit(:title,:url,:region,:phone_number,:ceo,:content).merge(user_id: current_user.id)
   end
+
+  def load_task
+    @task_memo = current_user.tasks.find(params[:id])
   end
+end

@@ -1,7 +1,7 @@
 <h2 class="title">CREATE NEW COMPANY</h2>
 <div class="contents row">
 <div class="container">
-<%= form_with model: @task_memo, url: tasks_path, local: true do |f| %>
+<%= form_with model: @task_memo, local: true do |f| %>
 <th>会社名</th>
   <p><%= f.text_field :title,class:"input-default", id:"title", :size=>"20"%></p>
 <tr>
